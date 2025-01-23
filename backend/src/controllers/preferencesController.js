@@ -45,7 +45,6 @@ exports.createPreferences = async (req, res) => {
     req.body;
 
   const { userId } = req.user;
-  console.log("address", address);
 
   try {
     // Check if preference with same placeName already exists
@@ -146,7 +145,6 @@ exports.getPreferencesByWeather = async (req, res) => {
 
     // Convert weather data to categories
     const { temperature, weather, time } = convertWeatherData(weatherData);
-    console.log("Converted weather data:", { temperature, weather, time });
 
     // Find preferences based on any of the matching attributes
     const preferences = await Preferences.find({

@@ -51,14 +51,11 @@ async function getSuggestion(req, res) {
       }
     }
 
-    // Generate suggestion using OpenAI
-    console.log(placesByCategory);
     const suggestion = await generateSuggestion(
       userId,
       weatherData,
       placesByCategory
     );
-    console.log("Suggestion:", suggestion);
 
     // Return suggestion with address included
     res.json({

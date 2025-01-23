@@ -11,14 +11,10 @@ async function generateSuggestion(userId, weatherData, placesByCategory) {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     const history = getSuggestionHistory(userId);
-    console.log("userId", userId);
-    console.log("History", history);
     const userPreferences = await getPreferencesByWeatherMethod(
       userId,
       weatherData
     );
-
-    console.log("User Preferences:", userPreferences);
 
     const prompt = `Analyze the following weather conditions, user preferences, and nearby places to provide ONE personalized recommendation:
 **Current Weather:**
