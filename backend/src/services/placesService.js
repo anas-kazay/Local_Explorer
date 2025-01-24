@@ -1,16 +1,9 @@
-const axios = require('axios');
-const { apiKey, baseUrl } = require('../config/places');
+const axios = require("axios");
+const { apiKey, baseUrl } = require("../config/places");
 
-const delay = (ms) =>
-  new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const getNearbyPlaces = async (
-  lat,
-  lon,
-  tag,
-  radius = 500,
-  limit = 10
-) => {
+const getNearbyPlaces = async (lat, lon, tag, radius = 500, limit = 10) => {
   try {
     const response = await axios.get(baseUrl, {
       params: {
@@ -20,14 +13,14 @@ const getNearbyPlaces = async (
         tag: tag,
         radius: radius,
         limit: limit,
-        format: 'json',
+        format: "json",
       },
     });
 
     return response.data;
   } catch (error) {
     console.error(
-      'Error fetching nearby places:',
+      "Error fetching nearby places:",
       error.response ? error.response.data : error.message
     );
     throw new Error(`Error fetching nearby places: ${error.message}`);
@@ -57,7 +50,7 @@ const getPlacesWithDelay = async (placesRequests) => {
       });
     }
     // Add a delay to ensure no more than 2 requests per second
-    await delay(1200); // 500ms delay (2 requests per second)
+    await delay(600); // 500ms delay (2 requests per second)
   }
   return results;
 };

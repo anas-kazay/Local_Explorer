@@ -28,7 +28,7 @@ async function getSuggestion(req, res) {
         const places = await new Promise((resolve, reject) => {
           setTimeout(async () => {
             try {
-              const result = await getNearbyPlaces(
+              const result = await getPlacesWithDelay(
                 latitude,
                 longitude,
                 category,
