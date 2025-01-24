@@ -28,12 +28,12 @@ async function getSuggestion(req, res) {
         const places = await new Promise((resolve, reject) => {
           setTimeout(async () => {
             try {
-              const result = await getPlacesWithDelay(
+              const result = await getNearbyPlaces(
                 latitude,
                 longitude,
                 category,
                 radius, // 5km radius
-                5 // limit to 5 places
+                3 // limit to 5 places
               );
               resolve(result);
             } catch (err) {
@@ -56,6 +56,8 @@ async function getSuggestion(req, res) {
       weatherData,
       placesByCategory
     );
+
+    console.log(placesByCategory);
 
     // Return suggestion with address included
     res.json({

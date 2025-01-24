@@ -50,7 +50,7 @@ const getPlacesWithDelay = async (placesRequests) => {
       });
     }
     // Add a delay to ensure no more than 2 requests per second
-    await delay(600); // 500ms delay (2 requests per second)
+    await delay(1200); // 500ms delay (2 requests per second)
   }
   return results;
 };
