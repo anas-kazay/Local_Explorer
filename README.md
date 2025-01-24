@@ -52,5 +52,4 @@ Local Explorer is an AI-driven web application that provides personalized activi
 - JWT for authentication
 - Various APIs integration (OpenWeatherMap, LocationIQ)
 
-3. MongoDB connection string
 
